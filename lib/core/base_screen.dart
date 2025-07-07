@@ -1,3 +1,4 @@
+//C:\Users\user\Desktop\0703flutter_v2\lib\core\base_screen.dart
 import 'package:flutter/material.dart';
 
 abstract class BaseScreen<T extends StatefulWidget> extends State<T> {

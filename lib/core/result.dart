@@ -1,3 +1,4 @@
+//C:\Users\user\Desktop\0703flutter_v2\lib\core\result.dart
 sealed class Result<T> {
   const Result();
 }
