@@ -1,3 +1,5 @@
+// C:\Users\user\Desktop\0703flutter_v2\android\app\build.gradle.kts
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -8,7 +10,8 @@ plugins {
 android {
     namespace = "com.example.t0703"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    // ✅ NDK 버전 불일치 오류 해결을 위해 명시적으로 NDK 버전을 지정합니다.
+    ndkVersion = "27.0.12077973" // 이 줄이 정확히 있는지 확인해주세요.
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
