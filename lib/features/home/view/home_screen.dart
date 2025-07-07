@@ -1,4 +1,4 @@
-//C:\Users\user\Desktop\0703flutter_v2\lib\features\home\view\home_screen.dart
+// C:\Users\user\Desktop\0703flutter_v2\lib\features\home\view\home_screen.dart
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/foundation.dart' show kIsWeb; // kIsWeb 임포트
@@ -51,7 +51,6 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     // Image.asset(
                     //   'assets/images/logo.png', // 앱 로고 이미지 경로 (필요시 추가)
-                    //   height: 100,
                     // ),
                     const Icon(Icons.health_and_safety, size: 80, color: Colors.white), // 임시 아이콘
                     const SizedBox(height: 10),
@@ -110,6 +109,17 @@ class HomeScreen extends StatelessWidget {
                   onPressed: () => context.go('/history'),
                   buttonColor: Colors.orangeAccent, // 버튼 색상 변경
                 ),
+                const SizedBox(height: 20), // 버튼 사이 간격
+
+                // ✅ 주변 치과 버튼 추가
+                _buildActionButton(
+                  context,
+                  label: '주변 치과',
+                  icon: Icons.local_hospital, // 병원 관련 아이콘
+                  onPressed: () => context.go('/clinics'), // '/clinics' 경로로 이동
+                  buttonColor: Colors.purpleAccent, // 새로운 버튼 색상
+                ),
+                const SizedBox(height: 20), // 버튼 사이 간격
                 // 챗봇 버튼은 여기에 없으므로 제거되었습니다.
               ],
             ),
