@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../../../core/base_screen.dart';
-import '../viewmodel/consultation_viewmodel.dart';
+import '../viewmodel/consultation_viewmodel.dart'; // ✅ 이 경로가 정확해야 합니다!
 
 class ConsultationListScreen extends StatefulWidget {
   const ConsultationListScreen({super.key});
@@ -56,7 +56,7 @@ class _ConsultationListScreenState extends BaseScreen<ConsultationListScreen> {
         backgroundColor: Theme.of(context).primaryColor,
         foregroundColor: Colors.white,
       ),
-      body: Consumer<ConsultationViewModel>(
+      body: Consumer<ConsultationViewModel>( // ✅ Consumer 타입 확인
         builder: (context, viewModel, child) {
           return viewModel.consultations.isEmpty && !viewModel.isLoading
               ? const Center(child: Text('비대면 진단 결과가 없습니다.'))

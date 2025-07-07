@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../core/base_screen.dart';
-import '../viewmodel/history_viewmodel.dart';
+import '../viewmodel/history_viewmodel.dart'; // ✅ 이 경로가 정확해야 합니다!
 
 class HistoryDetailScreen extends StatefulWidget {
   final String historyId;
@@ -15,7 +15,7 @@ class HistoryDetailScreen extends StatefulWidget {
 
 class _HistoryDetailScreenState extends BaseScreen<HistoryDetailScreen> {
   late HistoryViewModel _viewModel;
-  HistoryRecord? _record;
+  HistoryRecord? _record; // HistoryRecord 타입이 이제 history_viewmodel.dart에서 정의되므로 임포트 문제 해결
 
   @override
   void initState() {

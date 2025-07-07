@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../../../core/base_screen.dart';
-import '../viewmodel/history_viewmodel.dart';
+import '../viewmodel/history_viewmodel.dart'; // ✅ 이 경로가 정확해야 합니다!
 
 class HistoryScreen extends StatefulWidget {
   const HistoryScreen({super.key});
@@ -56,6 +56,7 @@ class _HistoryScreenState extends BaseScreen<HistoryScreen> {
       context: context,
       firstDate: DateTime(2000),
       lastDate: DateTime.now(),
+      // ✅ initialDate 대신 initialDateRange 사용 및 올바른 값 전달
       initialDateRange: _startDate != null && _endDate != null
           ? DateTimeRange(start: _startDate!, end: _endDate!)
           : null,

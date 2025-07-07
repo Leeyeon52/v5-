@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../core/base_screen.dart';
-import '../viewmodel/consultation_viewmodel.dart';
+import '../viewmodel/consultation_viewmodel.dart'; // ✅ 이 경로가 정확해야 합니다!
 
 class ConsultationDetailScreen extends StatefulWidget {
   final String consultationId;
@@ -15,7 +15,7 @@ class ConsultationDetailScreen extends StatefulWidget {
 
 class _ConsultationDetailScreenState extends BaseScreen<ConsultationDetailScreen> {
   late ConsultationViewModel _viewModel;
-  Consultation? _consultation;
+  Consultation? _consultation; // ✅ Consultation 타입이 이제 consultation_viewmodel.dart에서 정의되므로 임포트 문제 해결
 
   @override
   void initState() {

@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import '../../../core/result.dart';
-import '../../../data/remote/consultation_api_service.dart';
+import '../../../data/remote/consultation_api_service.dart'; // ✅ 이 경로가 정확해야 합니다!
 
 // 비대면 진단 데이터 모델
 class Consultation {
@@ -69,7 +69,7 @@ class ConsultationViewModel extends ChangeNotifier {
       if (result is Success<List<Map<String, dynamic>>>) {
         _consultations = result.data.map((json) => Consultation.fromJson(json)).toList();
         _consultations.sort((a, b) => b.requestDate.compareTo(a.requestDate)); // 최신순 정렬
-      } else if (result is Failure<List<Map<String, dynamic>>>) {
+      } else if (result is Failure<List<Map<String, dynamic>>>) { // ✅ 꺾쇠 괄호 개수 수정 확인
         _errorMessage = result.message;
       }
     } catch (e) {
@@ -88,7 +88,7 @@ class ConsultationViewModel extends ChangeNotifier {
       final result = await _apiService.getConsultationDetail(id);
       if (result is Success<Map<String, dynamic>>) {
         _currentConsultation = Consultation.fromJson(result.data);
-      } else if (result is Failure<Map<String, dynamic>>) {
+      } else if (result is Failure<Map<String, dynamic>>) { // ✅ 꺾쇠 괄호 개수 수정 확인
         _errorMessage = result.message;
       }
     } catch (e) {

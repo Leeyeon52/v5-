@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import '../../../core/result.dart';
-import '../../../data/remote/history_api_service.dart';
+import '../../../data/remote/history_api_service.dart'; // 이 경로가 정확해야 합니다!
 
 // 진단 기록 데이터 모델
 class HistoryRecord {
@@ -70,7 +70,7 @@ class HistoryViewModel extends ChangeNotifier {
         _allHistoryRecords = result.data.map((json) => HistoryRecord.fromJson(json)).toList();
         _allHistoryRecords.sort((a, b) => b.date.compareTo(a.date)); // 최신순 정렬
         _filteredHistoryRecords = List.from(_allHistoryRecords); // 초기 필터링된 목록 설정
-      } else if (result is Failure<List<Map<String, dynamic>>>) {
+      } else if (result is Failure<List<Map<String, dynamic>>>) { // ✅ 꺾쇠 괄호 개수 수정 확인
         _errorMessage = result.message;
       }
     } catch (e) {
@@ -89,7 +89,7 @@ class HistoryViewModel extends ChangeNotifier {
       final result = await _apiService.getHistoryRecordDetail(id);
       if (result is Success<Map<String, dynamic>>) {
         _currentHistoryRecord = HistoryRecord.fromJson(result.data);
-      } else if (result is Failure<Map<String, dynamic>>) {
+      } else if (result is Failure<Map<String, dynamic>>) { // ✅ 꺾쇠 괄호 개수 수정 확인
         _errorMessage = result.message;
       }
     } catch (e) {
