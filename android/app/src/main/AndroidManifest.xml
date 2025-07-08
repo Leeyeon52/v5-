@@ -1,5 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.t0703"> <!-- ✅ 패키지 이름 지정 -->
+    package="com.example.t0703">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:label="t0703"
@@ -16,7 +22,6 @@
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
 
-            <!-- 초기 로딩 시 보여질 테마 -->
             <meta-data
                 android:name="io.flutter.embedding.android.NormalTheme"
                 android:resource="@style/NormalTheme" />
@@ -27,13 +32,11 @@
             </intent-filter>
         </activity>
 
-        <!-- Flutter 플러그인 자동 등록용 메타데이터 -->
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
 
-    <!-- Flutter 텍스트 처리용 권한 쿼리 -->
     <queries>
         <intent>
             <action android:name="android.intent.action.PROCESS_TEXT" />
