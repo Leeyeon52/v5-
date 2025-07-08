@@ -1,16 +1,29 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.t0703">
 
+    <!-- 카메라 권한 -->
     <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 오디오 녹음 권한 (필요 없을 시 제거 가능) -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    
+    <!-- 레거시 외부 저장소 쓰기 권한 (Android 9 이하) -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- 레거시 외부 저장소 읽기 권한 (Android 12 이하) -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32"/>
+    <!-- Android 13 (API 33) 이상을 위한 새로운 미디어 권한 -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
+    <!-- 인터넷 권한 (모델 다운로드 등) -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- 카메라 기능 명시 -->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
         android:label="t0703"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:requestLegacyExternalStorage="true"> <!-- Android 10 이상에서 레거시 저장소 모델 사용 시 필요 -->
 
         <activity
             android:name=".MainActivity"
